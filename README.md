@@ -1,0 +1,2 @@
+# basicGTMConfiguration
+GTM Basic Formula
