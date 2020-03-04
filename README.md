@@ -1,27 +1,41 @@
 # Whole Whale GTM Basic Formula
 
-The file is meant to be a ready-set starting point to set basic analytics tracking on your site through Google Tag Manager
-   
+This file is meant to be a ready-set starting point to set basic analytics tracking on your site through Google Tag Manager.
+
+## Installation
+
+Download the .json file. 
+In Google Tag Manager:
+* Click the Admin tab in your GTM container
+* Click `Import Container`
+* Click `Choose Container File` and select the .json file
+* Under `Choose a workspace`, select existing and select your default workspace
+* Under `Choose an import option`, select `merge`
+* Select `rename conflicting tags` if your container is not empty
+* Click *confirm*
+
+You are now ready to customize and use the tags. Preview and edit as needed. 
+
 ## Formula Contents
 
 ### Variables
 
 * Google Analytics Settings: 
-You will need to add your Google Analytics property ID. Already connected to the currently existing tags, it is a reusable option to not have to rewrite any general settings that your tag would share with others
-* PII Scrubber:
-You will need to edit the code by replacing in `?!youremail\.com` and `?youremail\.com`the domain name of your sites email (make sure to keep the back slash before the dot)
-to use this variable, edit the Google Analytics Settings variable. Under "more settings" > "fields to set" add a field and fill in `customTask` under name, and `{{PII Scrubber}}`under value
+*You will need to add your Google Analytics property ID* which is necessary since it is already connected to the currently existing tags. This variable is a reusable option to not have to rewrite any general settings that your tag would share with others. - If you create a tag where you will need to change any of this general settings, within the tag options you can check the `Enable overriding settings in this tag` section which will allow you to update those settings for the individual tag only
+* PII Scrubber: (*Not necessary for everyone. If you know or you believe you have Personal Identifiable Information being passed any of the URL paths of your site, this variable will rid of it*)
+You will need to edit the code by replacing `?!youremail\.com` and `?youremail\.com` with the domain name of your site's email (make sure to keep the back slash before the dot).
+_**If you don't need a scrubber, follow these steps to get rid of it**_: Edit the Google Analytics Settings variable. Under "more settings" > "fields to set" click on the `-` button next to  the `customTask` field with the value `{{PII Scrubber}}`. Save your settings variable and you're done.
 
 ### Triggers
-If not very acquainted with GTM. Triggers are like sensors (commonly called "listeners")whose solely job is to check if an action has been performed on the page by a visitor and let GTM know that the tags related to it can be executed. Each Trigger relates to an action and it contains certain requirements for it to accept it (called "rules").
+Triggers are like sensors (commonly called "listeners")whose sole job is to check if an action has been performed on site and let GTM know that the tags related to that trigger can be executed. Each Trigger relates to an action and contains certain requirements in order to fire (called "rules").
 
-* 15 Second Timer: It checks if a visitor has been on the site for 15 seconds
-* All Clicks: It checks if anything on the page has been clicked
-* All LinksL: It checks if any links have been clicked
-* All Outbound Links: it checks if any links outside of the site (AKA that have a different hostname)
-* Form Submissions: it checks if a form has been filled and sent
-* PDF Click: Checks on clicks to PDF downloadable content
-* Scroll Depth: It listents for difenrent percentage ranges that the user had scrolled through the page
+* 15 Second Timer: Fires if a visitor has been on the site for at least 15 seconds
+* All Clicks: Fires if anything on the page has been clicked
+* All Links: Fires if any link has been clicked
+* All Outbound Links: Fires if any link to an external site has been clicked(so, any link that does not contain your website's hostname) _*for this to properly work, you will need to update the second rule under `the trigger fires on` where it says `yoursite.org`. You will need to change it for your site's hostname._
+* Form Submissions: Fires if a form has been properly filled out and submitted
+* PDF Click: Fires on clicks to PDF downloadable content
+* Scroll Depth: Fires when users reach difenrent percentage ranges through the page
 
 ### Tags
 * Adjusted Bounce Rate
@@ -52,8 +66,4 @@ Label: {{Click URL}}`
 Action: Percentage: {{Scroll Depth Threshold}}
 Label: Page URL: {{Page URL}}`
 
-## Installation
 
-After downloading the .json file, under the Admin tab within the GTM container, click `Import Container`, click `Choose Container File` and grab the .json file, then select `existing`, select your default works space, and keep `merge` as the option checked, select rename conflicting tags if your container is not empty and click confirm.
-
-You are now ready to use the tags. Preview and edit as needed. 
