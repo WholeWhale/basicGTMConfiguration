@@ -736,6 +736,25 @@
                         "type": "BOOLEAN",
                         "key": "useDebugVersion",
                         "value": "false"
+                    },{
+                        "type": "LIST",
+                        "key": "fieldsToSet",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "customTask"
+                                    },{
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{PII Scrubber}}"
+                                    }
+                                ]
+                            }
+                        ]
                     },
                     {
                         "type": "BOOLEAN",
