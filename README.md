@@ -4,7 +4,7 @@ This file is meant to be a ready-set starting point to set basic analytics track
 
 ## Installation
 
-Download the .json file. 
+Download the .json file.   
 In Google Tag Manager:
 * Click the Admin tab in your GTM container
 * Click `Import Container`
@@ -33,7 +33,7 @@ Triggers are like sensors (commonly called "listeners")whose sole job is to chec
 * All Clicks: Fires if anything on the page has been clicked
 * All Links: Fires if any link has been clicked
 * All Outbound Links: Fires if any link to an external site has been clicked(so, any link that does not contain your website's hostname).  
-_for this to properly work, you will need to update the second rule under `the trigger fires on` where it says `yoursite.org`. You will need to change it for your site's hostname_
+_For this to properly work, you will need to update the second rule under `the trigger fires on` where it says `yoursite.org`. You will need to change it for your site's hostname_
 * Form Submissions: Fires if a form has been properly filled out and submitted
 * PDF Click: Fires on clicks to PDF downloadable content
 * Scroll Depth: Fires when users reach difenrent percentage ranges through the page
