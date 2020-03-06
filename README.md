@@ -22,8 +22,8 @@ You are now ready to customize and use the tags. Preview and edit as needed.
 
 * Google Analytics Settings: 
 *You will need to add your Google Analytics property ID* which is necessary since it is already connected to the currently existing tags. This variable is a reusable option to not have to rewrite any general settings that your tag would share with others. - If you create a tag where you will need to change any of this general settings, within the tag options you can check the `Enable overriding settings in this tag` section which will allow you to update those settings for the individual tag only
-* PII Scrubber: (*Not necessary for everyone. If you know or you believe you have Personal Identifiable Information being passed any of the URL paths of your site, this variable will rid of it*)
-You will need to edit the code by replacing `?!youremail\.com` and `?youremail\.com` with the domain name of your site's email (make sure to keep the back slash before the dot).  
+* PII Scrubber: (*Not necessary for everyone. If you know or you believe you have Personal Identifiable Information being passed any of the URL paths of your site, this variable will rid of it*)   
+You will need to edit this variable by replacing in the code on line 12 `?!youremail\.com` and `?youremail\.com` from line 16 with the domain name of your site's email (make sure to keep the back slash before the dot). Ie. for Whole Whale emails we would change them to: `?!wholewhale\.com` and `?wholewhale\.com`, this would for example replace **https://www.wholewhale.com/example/?email=turtle@gmail.com** with `https://www.wholewhale.com/example/[REDACTED EMAIL]` and **https://www.wholewhale.com/example/?email=turtle@wholewhale.com** with `https://www.wholewhale.com/example/[REDACTED SELF-EMAIL]`
 _**If you don't need a scrubber, follow these steps to get rid of it**_: Edit the Google Analytics Settings variable. Under "more settings" > "fields to set" click on the `-` button next to  the `customTask` field with the value `{{PII Scrubber}}`. Save your settings variable and you're done
 
 ### Triggers
